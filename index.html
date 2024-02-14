@@ -15,22 +15,24 @@
 
 <body>
     <header class="header">
-        <nav>
-            <h1 class="title serif">Miguel</h1>
-            <ul>
-                <a href="/">Services</a>
-                <a href="/">Services</a>
-                <a href="/">Services</a>
-                <a href="/">Services</a>
-            </ul>
-        </nav>
-        <button class="button">See my work</button>
+        <div class="container">
+            <nav>
+                <h1 class="title serif">Miguel</h1>
+                <ul>
+                    <a href="/">Services</a>
+                    <a href="/">Services</a>
+                    <a href="/">Services</a>
+                    <a href="/">Services</a>
+                </ul>
+            </nav>
+            <button class="button">See my work</button>
+        </div>
     </header>
 
     <main>
         <div class="about">
             <img class="profile" src="./d-grips.jpg" alt="Profile">
-            <div class="bottom">
+            <div class="bottom" id="scrobble">
                 <h1 class="serif">Miguel Nogueira</h1>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione placeat ad officia odit
@@ -38,13 +40,45 @@
                 </p>
             </div>
         </div>
-        <section class="scroll-area">
-            <div>
-                <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci consectetur alias ab incidunt
+        <section class="container">
+            <div class="scroll-area">
+                <h1 class="serif">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci consectetur alias
+                    ab incidunt
                     sint.</h1>
+                <div class="button-wrapper">
+                    <button class="button active">Github</button>
+                    <button class="button">Other Stuff</button>
+                </div>
+                <hr class="separator">
+                <div class="card-list">
+                    <h2 class="serif">Lorem Ipsum Dolor sit Amet</h2>
+                    <div class="card">
+                        <div class="info">
+                            <img src="d-grips.jpg" alt="">
+                            <div>
+                                <span>Lorem Ipsum</span>
+                                <strong>Dolor sit Amet</strong>
+                            </div>
+                        </div>
+                        <span>Feb 2020 - Present</span>
+                    </div>
+
+                    <div class="card">
+                        <div class="info">
+                            <img src="d-grips.jpg" alt="">
+                            <div>
+                                <span>Lorem Ipsum</span>
+                                <strong>Dolor sit Amet</strong>
+                            </div>
+                        </div>
+                        <span>Feb 2020 - Present</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

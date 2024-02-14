@@ -10,6 +10,7 @@
     --stone-200: #e7e5e4;
     --stone-100: #f5f5f4;
     --stone-50: #fafaf9;
+    --max-width: 1200px;
 }
 
 * {
@@ -20,6 +21,7 @@
 
 .serif {
     font-family: "Roboto Serif", serif;
+    font-weight: 500;
 }
 
 html {
@@ -30,22 +32,30 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: var(--stone-50);
     color: var(--stone-900);
-    height: 100%;
-    width: 100%;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 
 /* -- */
 
 .header {
-    width: 100vw;
+    top: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: var(--stone-50);
+    display: flex;
+    justify-content: center;
+    padding-right: 1rem;
+}
+
+.header .container {
+    width: 100%;
+    max-width: var(--max-width);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: clamp(2rem, 5vw, 4.5rem);
-    padding-right: clamp(2rem, 5vw, 4.5rem);
-    padding-top: 1rem;
+    padding: 1rem;
 }
 
 .header nav {
@@ -77,13 +87,23 @@ body {
 
 .button {
     font: inherit;
-    padding: 0.75rem 1rem 0.75rem 1rem;
+    padding: 0.6rem 1rem 0.6rem 1rem;
     border-radius: 1.5rem;
     border: 1px solid var(--stone-400);
     background: var(--stone-50);
     cursor: pointer
 }
 
+.button.active {
+    background: var(--stone-900);
+    color: #fff;
+    transition: all .2s;
+    border: 1px solid var(--stone-950);
+}
+
+.button.active:hover {
+    background: var(--stone-950);
+}
 
 .button:hover {
     background: var(--stone-100);
@@ -94,33 +114,22 @@ body {
 /*  */
 
 main {
-    margin-top: clamp(2rem, 6vh, 4rem);
+    margin: 0 auto;
     display: flex;
+    margin-top: clamp(7rem, 10vh, 12rem);
     gap: 2rem;
-    padding-left: clamp(2rem, 5vw, 4.5rem);
-    padding-right: clamp(2rem, 5vw, 4.5rem);
+    padding: 1rem;
+    width: 100vw;
+    max-width: var(--max-width);
 }
 
-@media (max-width: 768px) {
-    main {
-        display: flex;
-        flex-direction: column;
-    }
-}
 
 main .about {
-    flex: 40%;
-}
-
-main .scroll-area {
     display: flex;
-    flex: 60%;
-    overflow: auto;
-}
-
-main .scroll-area div {
-    height: 99999px;
-    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    max-width: calc((1200px) * 0.35);
 }
 
 main .about h1 {
@@ -129,8 +138,23 @@ main .about h1 {
 }
 
 main .about p {
-    font-size: 1.1rem;
+    width: 88%;
+}
 
+main .container .scroll-area {
+    height: 999999px;
+    width: 100%;
+    max-width: 50%;
+}
+
+main .scroll-area h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+main .container {
+    display: flex;
+    justify-content: end;
 }
 
 main .bottom {
@@ -141,9 +165,127 @@ main .bottom {
 }
 
 main .profile {
-    width: 12rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
     object-fit: cover;
-    object-position: center -100px;
-    border-radius: 20px;
+    object-position: center -83px;
+    border-radius: 40px;
+
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main .about {
+        position: static;
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    section .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main .container .scroll-area {
+        max-width: 100%;
+    }
+}
+
+/*  */
+
+.button-wrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-block: 2rem;
+}
+
+.separator {
+    border: none;
+    height: 1px;
+    background: var(--stone-300);
+    margin-block: 1rem;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-list>h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background-color: var(--stone-100);
+    border-radius: 99999px;
+    padding: 1rem;
+    padding-inline: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card .info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.card img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card .info>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.card>span {
+    color: var(--stone-400);
+    font-size: 0.85rem;
+}
+
+.scrobble {
+    background-color: var(--stone-800);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--stone-50);
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.scrobble img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 10px;
+}
+
+.scrobble>div {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.scrobble strong {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.scrobble span {
+    font-size: 0.9rem;
+    color: var(--stone-200)
 }
