@@ -88,9 +88,12 @@ document.onvisibilitychange = (ev) => {
 let audioPlayer;
 const surpriseButton = document.getElementById("surprise")
 const devious = document.getElementById('devious')
+const wizard = document.getElementById('wizard')
 
 devious.onclick = () => surpriseButton.click()
+let interval;
 surpriseButton.onclick = function (event) {
+    clearInterval(interval)
     if (audioPlayer && !audioPlayer.paused) {
         audioPlayer.currentTime = 0
         return
@@ -102,4 +105,16 @@ surpriseButton.onclick = function (event) {
     source.type = "audio/mpeg"
     audioPlayer.appendChild(source)
     audioPlayer.autoplay = true
+
+    let showing = false
+    interval = setInterval(() => {
+        showing = !showing
+        if (showing) {
+            wizard.style.display = "block"
+        }
+        else {
+            wizard.style.display = "none"
+        }
+    }, 75);
+
 }

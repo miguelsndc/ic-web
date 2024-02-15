@@ -387,3 +387,15 @@ main .profile {
 .loader {
     margin-block: 1rem;
 }
+
+.ronaldinho {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    top: 0;
+    bottom: 0;
+    object-fit: cover;
+    object-position: center;
+    z-index: 9999;
+}
