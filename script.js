@@ -115,6 +115,6 @@ surpriseButton.onclick = function (event) {
         else {
             wizard.style.display = "none"
         }
-    }, 75);
+    }, 45);
 
 }
